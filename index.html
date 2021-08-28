@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Google Sheet Example</title>
+	
+	<!-- Please note that you need to run this file on a (local) web server otherwise so locally it doesn't work -->
+	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+<style>
+	body {width: 100%;}
+.wrapper {max-width:800px}
+h2 {
+  font-weight: 700;
+}
+
+a {
+  color: #555;
+  font-size: 15px;
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  
+}
+
+a:hover {
+  color: #555;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.form-control {float:right;height:30px;width:200px}
+
+.btn {
+  float:left;
+  display: inline-block;
+  padding: 0.5em 1.0em;
+  background: #EEE;
+  border: none;
+  border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  color: #222;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-shadow: 0 1px white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #8CF;
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+  color: #222;
+}
+
+.btn:active,
+.button.is-checked {
+  background-color: #ED204C;
+}
+
+.btn.is-checked {
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+  background-color: #ED204C;
+}
+
+.btn:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+  background-color: #ED204C;
+}
+
+/* ---- button-group ---- */
+
+.btn-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.btn-group .btn {
+  float: left;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 1px;
+}
+
+.btn-group .btn:first-child { border-radius: 0.5em 0 0 0.5em; }
+.btn-group .btn:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+/* ---- isotope ---- */
+
+
+/* clear fix */
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- #element-item ---- */
+
+#element-item {
+  position: relative;
+  float: left;
+  font-family: sans-serif;
+  width: 100%! important;
+  height: auto;
+  margin: 2px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: rgba( 253, 253, 253, 0.9);
+  color: #5C564B;
+  box-shadow: 1px 1px 1px #999999;
+}
+
+#element-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+	float:left;
+	margin-right: 20px;
+}
+
+#element-item .category { 
+  font-size: 14px;
+  background-color: #1a5ba39e;
+  padding: 5px 10px;
+  color: #fff;
+  width: auto;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+	text-align: left;
+
+}
+
+
+#element-item img {
+  border: 1px solid #ccc;
+}
+
+
+#element-item .readmore, #element-item .readmore a {
+  font-weight: 700;
+  color: #1A5BA3;
+  font-size: 12px;
+}
+
+#element-item .description {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+#element-item .boldsubhed {
+font-size: 13px;
+font-weight: 700;
+color: #666;
+
+}
+#element-item .name {
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+ /* text-transform: uppercase;*/
+  padding-top: 5px;
+
+}
+
+.is-checked {
+  background-color: #ebebeb;
+}
+
+
+#element-item .colorsubhed {
+  font-weight: 700;
+  color: #800000;
+
+}
+
+#element-item .location {
+  font-weight: 700;
+}
+
+#element-item .date, #element-item .description  {
+  font-size: 13px;
+
+}
+
+.page-header {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+@media screen and (min-width: 1000px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+   #element-item {
+  width: 32%! important;
+}
+
+}
+
+@media (max-width: 550px) {
+   #element-item {
+  width: 47%! important;
+}
+
+h2 {
+  font-size: 1.6em
+}
+.btn-default  {
+  font-size: 0.9em;
+}
+
+body {
+  font-size: 1.0em;
+}
+
+	#quicksearch {float: right !important;
+	position: relative;}	
+#element-item .boldsubhed, #element-item .description {
+font-size: 1.0em;
+
+}
+#element-item .category {
+  font-size: 1.2em;
+  padding: 5px 15px;
+}
+#element-item .name {
+
+  font-size: 1.1em;
+
+}
+}
+
+@media (max-width: 320px) {
+   #element-item {
+  width: 100%! important;
+}
+
+
+.btn-default {
+  font-size: 0.7em;
+}
+
+body {
+  font-size: 1.3em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+#element-item img {
+  height: 120px;
+
+
+}
+
+}
+#database {
+	padding-top: 30px;
+}</style>
+</head>
+
+<body>
+	
+	<div class="wrapper">
+<div class="input-group"><input type="text" id="quicksearch" class="form-control" placeholder="Search" /></div>
+<div id="filter" class="btn-group" role="group"><button id="allbuttons" class="btn btn-default is-checked" data-value="*">Show All</button></div>
+<div id="database"><br /></div>
+</div>
+	
+<script type="text/javascript" src="https://raw.githubusercontent.com/frrrrank/Google-Sheet-Stuff/main/init.js"></script>
+</body>
+</html>
