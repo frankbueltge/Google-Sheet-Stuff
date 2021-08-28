@@ -1,4 +1,4 @@
-<h1>Google Sheet as database or tiny CMS using Papa Parse (with quick search and filter by category using isotope)</h1>
+<h1>Google Sheet as database or tiny CMS using Papa Parse <br>(plus quick search and filter by category using isotope)</h1>
 
 Do you want to use Google Sheets as a database for websites? 
 Here you can find a working example that is compatible with the current Google API v4 (2021). 
