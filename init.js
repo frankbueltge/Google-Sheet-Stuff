@@ -3,7 +3,7 @@
 // Instructions can be found here: https://frankbueltge.de/en/google-sheets-as-database-or-tiny-cms/
 
 // Publish your sheet to the web and use the URL you get from the sharing option on the top/right of the sheet and add /pub?output=csv at the end of the URL      
-	 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1YuFDewwoKgRLHZIcYov7kQ2yCfbc--tEA10gf7Czvk4/pub?output=csv';
+	 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/13lP-96izM95kbpBlY9Wx1XfcyPNF9Lsc26ApQN-95Qo/pub?output=csv';
 
      var qsRegex;
      var buttonFilter;
@@ -27,6 +27,8 @@
        // data comes through as a simple array since simpleSheet is turned on
        // alert("Successfully processed " + data.length + " rows!");
        // console.log(data);
+		
+	   // loop to get the data from JSON and write it to the div's with the id's database and quicksearch 
        $.each(data, function(i, v) {
          // Parses the resulting JSON into the individual squares for each row
          $container.append('<div id="element-item"><div class="category">' + v.Filter_category + '</div><img src="' + v.Pic_Link + '"><div class="name">' + v.Title + '</div><div class="boldsubhed">' + v.Location + '</div><div class="boldsubhed">' + v.City + '</div><div class="description">' + v.Date + '</div><div class="readmore"><a href="' + v.Website + ' " target="_blank">Website</a></div></div>');
